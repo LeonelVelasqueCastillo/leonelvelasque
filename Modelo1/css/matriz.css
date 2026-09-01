@@ -1,0 +1,97 @@
+body{
+    background-color: #56ca90bd;
+    text-align: center;
+    font-family: arial;
+    font-size: 30px;
+}
+
+h1{
+    font-family: Georgia,Arial, sans-serif,Impact;
+    color: #000000;
+    font-size: 32px;
+}
+
+img{
+    width: 250px;
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+a{
+    text-decoration: none;
+    color: #f00d0d;
+    text-align: center;
+}
+.principal{
+    width: 1250px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #000000;
+    padding: 10px;
+    display: flex;
+}
+
+.tarjeta{
+    width: 380px;
+    height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(238, 31, 110);
+    padding: 10px;
+    margin: 10px;
+}
+
+.titulo{
+    width: 360px;
+    background-color: rgb(206, 203, 23);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+}
+.servicio{
+    width: 360px;
+    height: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(160, 16, 148);
+    padding: 8px;
+}
+
+.descripcion{
+    width: 350px;
+    height: 220px;
+    background-color: rgb(114, 202, 13);
+    padding: 12px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+nav a:hover {
+    background-color: #ffc002;
+    color: rgb(0, 0, 0);
+}
