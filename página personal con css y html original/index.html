@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Leonel Velasque</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <header class="barra-superior">
+            <nav class="redes-container">
+                <ul>
+                    <li>
+                        <a href="https://tiktok.com" target="_blank">
+                            <img src="img/Tiktok.png" alt="tikTok" class="icono-red">
+                        </a>
+                    <li>
+                        <a href="https://github.com" target="_blank">
+                            <img src="img/gato.png" alt="GitHub" class="icono-red">
+                        </a>
+                    </li>  
+                    <li>
+                        <a href="https://instagram.com" target="_blank">
+                            <img src="img/IG.png" alt="Instagram" class="icono-red">
+                        </a>
+                    </li>  
+                </ul>
+            </nav>
+        </header>
+
+        <!-- CUERPO PRINCIPAL SEMÁNTICO -->
+        <main class="contenido-web">
+
+            <!-- SECCIÓN AMARILLA SEMÁNTICA -->
+            <section class="seccion-amarilla">
+                <h1>Titulo</h1> 
+                <h2>Profesional Certificado en Desarrollo de Software</h2> 
+                
+                <div class="foto-contenedor">
+                    <img src="img/leonel.png" alt="Leonel Alexander" class="foto-perfil">
+                    <p class="nombre-usuario">Leonel Alexander Velasque Castillo</p> 
+                </div>
+            </section>
+
+            <!-- SECCIÓN NARANJA SEMÁNTICA -->
+            <section class="seccion-naranja">
+                
+                <!-- Perfil Profesional -->
+                <div class="bloque-info">
+                    <h3>Perfil profesional</h3>
+                    <p>Desarrollador de software junior con formación práctica en la maquetación y estructuración de sitios web semánticos. Con conocimientos sólidos en tecnologías Front-End como HTML5 y CSS3, enfocado en el diseño adaptable a dispositivos móviles y la resolución creativa de problemas técnicos.</p>
+                </div>
+
+                <!-- Experiencia Laboral -->
+                <div class="bloque-info">
+                    <h3>Experiencia laboral.</h3>
+                    <p><strong>Desarrollador Web Junior Freelance</strong> - Proyectos Personales (2025 - Presente)<br>
+                    Diseño, maquetación e implementación de interfaces web interactivas y adaptables utilizando HTML5 y CSS3 para pequeños negocios locales.</p>
+                    <p><strong>Creador de Portafolios Digitales</strong> - Proyectos de Código Abierto (2025)<br>
+                    Desarrollo y publicación de repositorios públicos en GitHub, optimizando la estructura semántica y aplicando el control de versiones con Git.</p>
+                </div>
+
+                <!-- Formación Académica -->
+                <div class="bloque-info">
+                    <h3>Formación académica</h3>
+                    <p><strong>Desarrollo Web desde Cero</strong> - Certificación Técnica Práctica (2026)</p>
+                    <p><strong>Especialización en Tecnologías Front-End</strong> - Cursos de Programación (2025)</p>
+                </div>
+
+                <!-- REQUISITO ADICIONADO: 4 Habilidades obligatorias para la rúbrica -->
+                <div class="bloque-info">
+                    <h3>Habilidades</h3>
+                    <ul class="lista-habilidades">
+                        <li>Maquetación con HTML5 Semántico</li>
+                        <li>Estilos Estructurados con CSS3 Flexbox</li>
+                        <li>Diseño Web Adaptable (Responsive)</li>
+                        <li>Control de Versiones con Git y GitHub</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <!-- BARRA VERDE SEMÁNTICA: Aloja el formulario del profesor -->
+            <section class="barra-verde">
+                <div class="contenedor-formulario">
+                    <h1>Contáctanos</h1>
+                    <form>
+                        <label for="nombres">Nombres:</label>
+                        <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus nombres" required>
+
+                        <label for="apellidos">Apellidos:</label>
+                        <input type="text" id="apellidos" name="apellidos" placeholder="Ingrese sus apellidos" required>
+
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" placeholder="Ingrese su correo" required>
+
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required>
+
+                        <label for="servicio">Seleccione un servicio:</label>
+                        <select id="servicio" name="servicio" required>
+                            <option value="">-- Seleccione un servicio --</option>
+                            <option value="Impulso Digital">Desarrollo de Aplicaciones Web y Móviles a Medida</option>
+                            <option value="Acción Digital">Diseño de Interfaz y Experiencia de Usuario (UI/UX)</option>
+                            <option value="Presencia Web">Modernización y Rediseño de Software</option>
+                            <option value="Consultoría de negocios">Mantenimiento, Optimización y Soporte Técnico</option>
+                        </select>
+
+                        <label for="comentarios">Comentarios:</label>
+                        <textarea id="comentarios" name="comentarios" placeholder="Escriba sus comentarios" rows="5"></textarea>
+
+                        <button type="submit">Enviar formulario</button>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- BARRA AZUL SEMÁNTICA: Con tus derechos de autor -->
+        <footer class="barra-azul">
+            <p>&copy; 2026 Leonel Alexander Velasque Castillo. Todos los derechos reservados.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
