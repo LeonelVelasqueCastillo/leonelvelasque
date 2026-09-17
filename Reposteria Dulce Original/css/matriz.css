@@ -67,7 +67,7 @@ nav ul li a {
 
 /* El fondo verde se aplica de forma exclusiva a los textos del menú */
 nav ul li a.enlace-texto:hover {
-    background-color: rgb(155, 193, 32);
+    background-color: rgb(255, 40, 219);
     border-radius: 4px;
 }
 
