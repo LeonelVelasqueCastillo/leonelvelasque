@@ -5,6 +5,16 @@ html {
     scroll-behavior: smooth; /* Desplazamiento ultra suave por la página */
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img, iframe, video {
+    max-width: 100%;
+    height: auto;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -57,7 +67,7 @@ nav ul li a {
 
 /* El fondo verde se aplica de forma exclusiva a los textos del menú */
 nav ul li a.enlace-texto:hover {
-    background-color: rgb(196, 209, 124);
+    background-color: rgb(255, 56, 232);
     border-radius: 4px;
 }
 
@@ -129,9 +139,16 @@ section {
     max-width: 560px; /* Tamaño computadora */
 }
 
+.video-contenedor iframe {
+    width: 100%;
+    height: 315px;
+    border: none;
+    display: block;
+}
+
 .Whassap {
-    width:450x;
-    height: 150px;
+    width: 60px;
+    height: auto;
     margin: 1px auto;
     display: block;
 }
@@ -411,6 +428,8 @@ section {
     /* 1. Ajuste General de Secciones */
     section {
         padding: 60px 15px 40px 15px; /* Reduce los espacios exagerados */
+        width: 100%; /* Asegura que ninguna sección mida más que la pantalla */
+        box-sizing: border-box; /* Evita que el padding sume ancho extra */
     }
 
     /* 2. Reparación del Menú Superior */
@@ -459,5 +478,25 @@ section {
     .seccion-nosotros h1 {
         font-size: 32px;
         margin-bottom: 20px;
+    }
+
+    /* 6. CORRECCIÓN DEL DESBORDE (Catálogo y Contenedor Fucsia) */
+    /* Busca el nombre de la clase de tu contenedor fucsia. 
+       Si no se llama '.contenedor-catalogo', cambia ese nombre por el tuyo */
+    .contenedor-catalogo {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 10px;
+        display: flex;
+        flex-direction: column; /* Apila las tarjetas de cheesecake una debajo de otra */
+        align-items: center;
+    }
+
+    /* Asegura que las tarjetas individuales no pesen más que la pantalla */
+    .tarjeta-producto, .card { 
+        width: 100% !important;
+        max-width: 340px; /* Tamaño ideal para que se vea bien en cualquier celular */
+        box-sizing: border-box;
     }
 }
