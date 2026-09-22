@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Línea vital para que el navegador del móvil entienda las dimensiones de la pantalla -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frases de - Brawl Stars</title>
+    <style>
+        /* --- ESTILOS BASE Y FONDO --- */
+        body {
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #fbd46d;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.5rem; /* Ajustado para pantallas pequeñas */
+        }
+
+        /* --- CONTENEDOR FLEXIBLE --- */
+        .scenery-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px; /* Tamaño ideal de tarjeta en móvil */
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- CONTROL DE PANTALLAS --- */
+        .brawler-screen {
+            position: absolute;
+            width: 100%;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .brawler-screen.active {
+            display: flex; 
+        }
+
+        /* --- TARJETA OPTIMIZADA PARA MÓVIL --- */
+        .brawler-card {
+            background: radial-gradient(circle, #2d4059 0%, #1f4068 100%);
+            border: 4px solid #fbd46d;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Área adaptable de la imagen */
+        .brawler-img {
+            width: 100%;
+            max-width: 160px; /* Un poco más pequeña para dar espacio al texto en el celular */
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            background-color: rgba(255, 255, 255, 0.05); 
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border: 2px dashed #fbd46d; 
+        }
+
+        .brawler-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fbd46d;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .brawler-phrase {
+            font-size: 1rem;
+            font-style: italic;
+            color: #e4e4e4;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 12px;
+            border-radius: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* --- BOTONES ADAPTADOS PARA PANTALLAS TÁCTILES --- */
+        .navigation-controls {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .arrow-btn {
+            background-color: #fbd46d;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 50%;
+            width: 55px;  /* Tamaño táctil ideal para usar con el pulgar */
+            height: 55px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+            /* Evita el molesto destello azul al tocar pantallas en Android/iOS */
+            -webkit-tap-highlight-color: transparent; 
+        }
+
+        .arrow-btn:active {
+            transform: scale(0.9);
+            background-color: #ffe699;
+        }
+
+        /* --- MEJORAS PARA PANTALLAS MÁS GRANDES (PC/TABLETS) --- */
+        @media (min-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+            .scenery-container {
+                max-width: 440px;
+                min-height: 530px;
+            }
+            .brawler-img {
+                max-width: 180px;
+            }
+            .brawler-name {
+                font-size: 1.8rem;
+            }
+            .brawler-phrase {
+                font-size: 1.1rem;
+            }
+            .arrow-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1> 🌻 Frases que usa cada Brawler para Dedicar 🌻</h1>
+
+    <div class="scenery-container">
+
+        <!-- PANTALLA 1: SPIKE -->
+        <div class="brawler-screen active" id="screen-1">
+            <div class="brawler-card">
+                <img src="img/spike.png" alt="Spike" class="brawler-img">
+                <div class="brawler-name">Spike</div>
+                <div class="brawler-phrase">"¡...!" (Una sonrisa vale más que mil palabras)</div>
+                <div class="navigation-controls">
+                    <button class="arrow-btn" onclick="goToScreen(6)">◀</button>
+                    <button class="arrow-btn" onclick="goToScreen(2)">▶</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA 2: EL PRIMO -->
+        <div class="brawler-screen" id="screen-2">
+            <div class="brawler-card">
+                <img src="img/primo.png" alt="El Primo" class="brawler-img">
+                <div class="brawler-name">El Primo</div>
+                <div class="brawler-phrase">"Sostén esta flor bien fuerte... porque te la entrego con todo el cariño de mi corazón de campeón"</div>
+                <div class="navigation-controls">
+                    <button class="arrow-btn" onclick="goToScreen(1)">◀</button>
+                    <button class="arrow-btn" onclick="goToScreen(3)">▶</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA 3: POCO -->
+        <div class="brawler-screen" id="screen-3">
+            <div class="brawler-card">
+                <img src="img/poco.png" alt="Poco" class="brawler-img">
+                <div class="brawler-name">Poco</div>
+                <div class="brawler-phrase">"Ni la canción más bonita del mundo se compara con lo lindo que es tenerte cerca"</div>
+                <div class="navigation-controls">
+                    <button class="arrow-btn" onclick="goToScreen(2)">◀</button>
+                    <button class="arrow-btn" onclick="goToScreen(4)">▶</button>
+                </div>
+            </div> 
+        </div>
+
+         <!-- PANTALLA 4: PIPER -->
+        <div class="brawler-screen" id="screen-4">
+            <div class="brawler-card">
+                <img src="img/piper.png" alt="Piper" class="brawler-img">
+                <div class="brawler-name">Piper</div>
+                <div class="brawler-phrase">"Con todo el amor de mi corazón... Espero que este detalle ilumine tu día tanto como tú iluminas el mío"</div>
+                <div class="navigation-controls">
+                    <button class="arrow-btn" onclick="goToScreen(3)">◀</button>
+                    <button class="arrow-btn" onclick="goToScreen(5)">▶</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA 5: MORTIS -->
+        <div class="brawler-screen" id="screen-5">
+            <div class="brawler-card">
+                <img src="img/mortis.png" alt="Mortis" class="brawler-img">
+                <div class="brawler-name">Mortis</div>
+                <div class="brawler-phrase">"He vivido siglos enteros en la oscuridad, pero tú eres la única luz que hace florecer mi marchito corazón"</div>
+                <div class="navigation-controls">
+                    <button class="arrow-btn" onclick="goToScreen(4)">◀</button>
+                    <button class="arrow-btn" onclick="goToScreen(6)">▶</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA 6: COLT -->
+        <div class="brawler-screen" id="screen-6">
+            <div class="brawler-card">
+                <img src="img/colt.png" alt="Colt" class="brawler-img">
+                <div class="brawler-name">Colt</div>
+                <div class="brawler-phrase">"Puedo ser el sheriff de este pueblo, pero tú eres quien gobierna y manda en todo mi mundo"</div>
+                <div class="navigation-controls">
+                    <button class="arrow-btn" onclick="goToScreen(5)">◀</button>
+                    <button class="arrow-btn" onclick="goToScreen(1)">▶</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- LÓGICA DE INTERACCIÓN -->
+    <script>
+        function goToScreen(screenNumber) {
+            const screens = document.querySelectorAll('.brawler-screen');
+            
+            screens.forEach(screen => {
+                screen.classList.remove('active');
+            });
+
+            const targetScreen = document.getElementById('screen-' + screenNumber);
+            if (targetScreen) {
+                targetScreen.classList.add('active');
+            }
+        }
+    </script>
+
+    <!-- SECCIÓN DE DERECHOS DE AUTOR -->
+    <footer class="credits-footer">
+        <p>© 2026 Creado por Leonel A.V.C | © Personajes e imágenes propiedad de Supercell.</p>
+    </footer>
+
+</body>
+</html>
