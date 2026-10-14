@@ -1,0 +1,134 @@
+/* Ajustes generales del login. */
+* {
+    box-sizing: border-box;
+}
+
+/* Fondo y centrado de la pantalla. */
+body.pagina-login {
+    min-width: 320px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff7f2, #fde8f0);
+ }
+
+/* Adornos decorativos de fondo. */
+body.pagina-login::before,
+body.pagina-login::after {
+    position: fixed;
+    z-index: 0;
+    font-size: 64px;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* Fresa en la esquina superior izquierda. */
+body.pagina-login::before {
+    top: 8%;
+    left: 7%;
+    content: "🍓";
+    transform: rotate(-14deg);
+}
+
+/* Cupcake en la esquina inferior derecha. */
+body.pagina-login::after {
+    right: 8%;
+    bottom: 7%;
+    content: "🧁";
+    transform: rotate(12deg);
+}
+
+/* Tarjeta del formulario. */
+.pagina-login .login {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 380px);
+    padding: 36px 32px;
+    border: 2px solid #f5bfd8;
+    border-radius: 16px;
+    background: #fff8fb;
+    box-shadow: 0 10px 28px rgba(216, 27, 96, 0.14);
+}
+
+/* Título de la tarjeta. */
+.pagina-login .login h1 {
+    margin-bottom: 28px;
+    color: #d81b60;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* Etiquetas de los campos. */
+.pagina-login .login label {
+    display: block;
+    margin: 16px 0 7px;
+    color: #4e2a37;
+    font-weight: bold;
+}
+
+/* Campos de usuario y contraseña. */
+.pagina-login .login input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #e5c5d2;
+    border-radius: 7px;
+    background: #fff;
+    font: inherit;
+}
+
+/* Estado enfocado de los campos. */
+.pagina-login .login input:focus {
+    border-color: #f710aa;
+    outline: 2px solid rgba(247, 16, 170, 0.15);
+}
+
+/* Botón de ingreso. */
+.pagina-login .login button {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 22px;
+    border: 0;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f710aa, #d81b60);
+    color: #fff;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Estado hover del botón. */
+.pagina-login .login button:hover {
+    background: #9b166e;
+}
+
+/* Mensaje de error. */
+.pagina-login .login #mensaje {
+    margin-top: 12px;
+    color: #b42318;
+    font-size: 14px;
+}
+
+/* Oculta el mensaje hasta que sea necesario mostrarlo. */
+.pagina-login .login #mensaje[hidden] {
+    display: none;
+}
+
+/* Adaptación para pantallas pequeñas. */
+@media (max-width: 480px) {
+    body.pagina-login {
+        padding: 16px;
+    }
+
+    body.pagina-login::before,
+    body.pagina-login::after {
+        font-size: 42px;
+    }
+
+    .pagina-login .login {
+        padding: 30px 24px;
+    }
+}

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulce Sabor - Pastelería Artesanal</title>
+    <link rel="stylesheet" href="css/matriz.css">
+    <!-- Comprueba la sesión iniciada y habilita el cierre de sesión. -->
+    <script src="js/login.js" defer></script>
+</head>
+<body>
+
+    <!-- Encabezado con el logo, los enlaces, el carrito y las redes sociales. -->
+    <header>
+        <img src="img/Reposteria.png" alt="Dulce Sabor Logo" class="Reposteria">
+       
+        <!-- Menú de navegación: cada enlace lleva a una sección. -->
+        <nav>
+            <ul>
+                <li><a href="#inicio" class="enlace-texto">Inicio</a></li>
+                <li><a href="#catalogo" class="enlace-texto">Catálogo</a></li>
+                <li><a href="#nosotros" class="enlace-texto">Nosotros</a></li>
+                <li><a href="#contacto" class="enlace-texto">Contacto</a></li>
+                
+                <!-- Separador vertical visual -->
+                <li class="divisor">|</li>
+
+                <!-- Este botón abre el carrito -->
+                <li class="carrito-item">
+                    <button type="button" class="carrito-boton" aria-label="Carrito de compras">
+                        <span class="carrito-emoji">🛒</span>
+                        <span>Carrito</span>
+                        <span class="carrito-total">0</span>
+                    </button>
+                </li>
+                
+                <!-- Enlaces a las redes sociales. -->
+                <li class="red-social"><a href="https://www.facebook.com/share/1dB9rsas64/" target="_blank"><img src="img/facebook.png" class="Facebook" alt="Facebook"></a></li>
+
+                <li class="red-social"><a href="https://youtube.com/@reposteria67?si=YiHNRhmgFH-38N5u" target="_blank"><img src="img/youtube.png" class="Youtube" alt="YouTube"></a></li>
+
+                <li class="red-social"><a href="https://www.instagram.com/reposteria_dulce_sabor01?stkn=MWFoNDQydWFjbHhmNw==" target="_blank"><img src="img/ig.png" class="IG" alt="Instagram"></a></li>
+
+                <li class="red-social"><a href="https://www.tiktok.com/@dulcesabor90?_r=1&_t=ZS-99nNF10VbcY" target="_blank"><img src="img/tiktok.png" class="Tiktok" alt="TikTok"></a></li>
+                <!-- JavaScript coloca aquí el nombre guardado durante el login. -->
+                <li class="usuario-sesion">Hola, <span id="nombre"></span></li>
+                <!-- Este enlace elimina la sesión y vuelve a login.html. -->
+                <li><a href="login.html" class="enlace-texto boton-cerrar-sesion" id="cerrarSesion">Cerrar sesión</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Inicio:  muestra el video y acceso a WhatsApp. -->
+    <section id="inicio" class="seccion-inicio">
+        <p class="presentación">
+            En Dulce Sabor preparamos deliciosos postres y productos de repostería con ingredientes de calidad y mucho cariño.
+        </p>
+        
+        <!-- iframe inserta el video de YouTube dentro de la página. -->
+        <div class="video-contenedor">
+            <iframe width="1200" height="340" 
+                src="https://www.youtube.com/embed/hGgCVr1INIQ?si=ZdTPGbmD5ici-7PM" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="whatsapp-contenedor"> 
+            <a href="https://wa.me" target="_blank"><img src="img/Whassap.png" class="Whassap" alt="WhatsApp"></a>
+        </div>
+    
+    </section>
+
+    <!-- Catálogo: contiene las tarjetas de productos y sus botones para pedir. -->
+    <section id="catalogo" class="seccion-catalogo">
+        <p class="titulo-catalogo">Nuestro Catálogo</p>
+        <p class="subtitulo-catalogo">
+            Descubre todos nuestros postres y productos de repostería, hechos al momento con ingredientes de calidad.
+        </p>
+        
+        <div class="catalogo-grid">
+
+            <!-- Cada tarjeta guarda nombre y precio en el botón para que JS los lea al pulsar Pedir. -->
+            <div class="producto-card" data-categoria="tortas">
+                <img src="img/elegante-cheesecake-de-mermelada-fresas-con-frescas-y-menta-422398137.webp" alt="Cheesecake de fresas">
+                <p class="producto-nombre">Cheesecake de fresas</p>
+                <p class="producto-descripcion">Cheesecake cremosa con mermelada de fresas y hojas de menta.</p>
+                <p class="producto-precio">S/ 65.00</p>
+                <button type="button" class="producto-boton pedido-btn" data-producto="Cheesecake de fresas" data-precio="65">Pedir</button>
+            </div>
+
+            <div class="producto-card" data-categoria="tortas">
+                <img src="img/torta de fresa.jpg" alt="Torta de fresa">
+                <p class="producto-nombre">Torta de fresa</p>
+                <p class="producto-descripcion">Bizcocho de vainilla, crema chantilly y fresas frescas.</p>
+                <p class="producto-precio">S/ 70.00</p>
+                <button type="button" class="producto-boton pedido-btn" data-producto="Torta de fresa" data-precio="70">Pedir</button>
+            </div>
+
+            <div class="producto-card" data-categoria="tortas">
+                <img src="img/SELVA NEGRA.jpg" alt="Torta Selva Negra">
+                <p class="producto-nombre">Torta Selva Negra</p>
+                <p class="producto-descripcion">Deliciosa torta de chocolate con capas de crema y frutas.</p>
+                <p class="producto-precio">S/ 65.00</p>
+                <button type="button" class="producto-boton pedido-btn" data-producto="Torta Selva Negra" data-precio="65">Pedir</button>
+            </div>
+
+            <div class="producto-card" data-categoria="cupcakes">
+                <img src="img/CUPCAKE CHOCOLATE.jpg" alt="Cupcakes de chocolate">
+                <p class="producto-nombre">Cupcakes de chocolate</p>
+                <p class="producto-descripcion">Caja de 6 unidades rellenas de manjar blanco.</p>
+                <p class="producto-precio">S/ 27.00</p>
+                <button type="button" class="producto-boton pedido-btn" data-producto="Cupcakes de chocolate" data-precio="27">Pedir</button>
+            </div>
+
+            <div class="producto-card" data-categoria="galletas">
+                <img src="img/GALLETA DE AVENA.jpg" alt="Galletas de avena">
+                <p class="producto-nombre">Galletas de avena</p>
+                <p class="producto-descripcion">Bolsa de 10 unidades con avena, miel y pasas.</p>
+                <p class="producto-precio">S/ 15.00</p>
+                <button type="button" class="producto-boton pedido-btn" data-producto="Galletas de avena" data-precio="15">Pedir</button>
+            </div>
+
+            <div class="producto-card" data-categoria="galletas">
+                <img src="img/CHSIPAS DE CHOCOLATE.jpg" alt="Galletas con chispas de chocolate">
+                <p class="producto-nombre">Galletas con chispas</p>
+                <p class="producto-descripcion">Bolsa de 10 unidades, crocantes por fuera y suaves por dentro.</p>
+                <p class="producto-precio">S/ 16.00</p>
+                <button type="button" class="producto-boton pedido-btn" data-producto="Galletas con chispas" data-precio="16">Pedir</button>
+            </div>
+
+            <div class="producto-card" data-categoria="individuales">
+                <img src="img/Tiramisu (2).jpg" alt="Tiramisú individual">
+                <p class="producto-nombre">Tiramisú individual</p>
+                <p class="producto-descripcion">Capas de bizcocho, café y crema de mascarpone.</p>
+                <p class="producto-precio">S/ 12.00</p>
+                <button type="button" class="producto-boton pedido-btn" data-producto="Tiramisú individual" data-precio="12">Pedir</button>
+            </div>
+
+            <div class="producto-card" data-categoria="individuales">
+                <img src="img/descarga.jpg" alt="Cheesecake individual">
+                <p class="producto-nombre">Cheesecake individual</p>
+                <p class="producto-descripcion">Base de galleta, queso crema y mermelada de frutos rojos.</p>
+                <p class="producto-precio">S/ 13.00</p>
+                <button type="button" class="producto-boton pedido-btn" data-producto="Cheesecake individual" data-precio="13">Pedir</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección informativa sobre quiénes somos, misión, visión y valores. -->
+    <section id="nosotros" class="seccion-nosotros">
+        <h1>Nosotros</h1>
+
+        <div class="contenido-nosotros">
+            
+            <div class="bloque">
+                <h2>¿Quiénes somos?</h2>
+                <p>Somos una pastelería dedicada a la elaboración de deliciosos postres y productos de repostería. Nos enfocamos en ofrecer productos de calidad, preparados con dedicación, creatividad y pasión.</p>
+            </div>
+
+            <div class="bloque">
+                <h2>Nuestra historia</h2>
+                <p>Nuestra pastelería nació con la idea de compartir el gusto por la repostería y crear momentos especiales a través de nuestros productos. Comenzamos como un pequeño emprendimiento.</p>
+            </div> 
+
+            <div class="bloque">
+                <h2>Nuestra misión</h2>
+                <p>Ofrecer productos de pastelería frescos, deliciosos y de calidad, brindando una excelente atención y buscando satisfacer las necesidades de nuestros clientes.</p>
+            </div>
+
+            <div class="bloque">
+                <h2>Nuestra visión</h2>
+                <p>Ser una pastelería reconocida por la calidad de nuestros productos, nuestra creatividad y la confianza de nuestros clientes.</p>
+            </div>
+
+            <div class="bloque">
+                <h2>Nuestros valores</h2>
+                <ul>
+                    <li>Calidad</li>
+                    <li>Responsabilidad</li>
+                    <li>Creatividad</li>
+                    <li>Compromiso</li>
+                    <li>Buena atención</li>
+                </ul>
+            </div>
+
+            <div class="bloque">
+                <h2>Nuestro secreto</h2>
+                <p>El verdadero secreto de nuestras recetas está en utilizar insumos frescos seleccionados minuciosamente. Nuestra magia es el amor por el detalle y el deseo constante de endulzar tus días.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección de contacto con la información del negocio y un formulario de consulta. -->
+    <section id="contacto" class="seccion-contacto">
+        <h2>¡Ponte en Contacto con Nosotros!</h2>
+        <p class="subtitulo">Si tienes dudas, pedidos especiales o quieres cotizar para un evento, escríbenos con total confianza.</p>
+
+        <div class="contacto-contenedor">
+            <div class="contacto-info">
+                <h3>Nuestros Datos</h3>
+                <p><strong>📍 Dirección:</strong> Av. Principal 123, Lima</p>
+                <p><strong>📞 WhatsApp:</strong> +51 912 478 167</p>
+                <p><strong>✉️ Correo:</strong> contacto@dulcesabor.com</p>
+                <p><strong>⏰ Horario:</strong> Lun a Sáb: 9:00 AM - 8:00 PM</p>
+            </div>
+
+            <form class="contacto-formulario">
+                <h3>Envíanos un mensaje</h3>
+                
+                <!-- Cada label identifica el campo que debe completar el usuario. -->
+                <label for="nombreContacto">Nombre Completo</label>
+                <input type="text" id="nombreContacto" placeholder="Tu nombre" required>
+
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" placeholder="tu@correo.com" required>
+
+                <!-- textarea permite escribir una consulta de varias líneas. -->
+                <label for="mensaje">¿En qué te podemos ayudar?</label>
+                <textarea id="mensaje" rows="4" placeholder="Escribe tu consulta o pedido aquí..." required></textarea>
+
+                <!-- Envía el formulario; required obliga a completar los campos. -->
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modal del comprobante: JavaScript rellena el producto y el precio al abrirlo. -->
+    <div class="modal-overlay" id="modalCompra" aria-hidden="true">
+        <div class="modal-comprobante" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+            <button type="button" class="cerrar-modal" aria-label="Cerrar comprobante">×</button>
+            <p class="modal-etiqueta">Comprobante de compra</p>
+            <h3 id="titulo-modal">Estás pidiendo</h3>
+
+            <div class="detalle-compra">
+                <p class="nombre-producto" id="modalNombreProducto">Producto</p>
+                <p class="descripcion-producto">Pedido hecho desde nuestra pastelería artesanal.</p>
+            </div>
+
+            <div class="resumen-compra">
+                <div class="fila-resumen">
+                    <span>Cantidad</span>
+                    <strong id="modalCantidad">1</strong>
+                </div>
+                <div class="fila-resumen">
+                    <span>Precio unitario</span>
+                    <strong id="modalPrecio">S/ 0.00</strong>
+                </div>
+                <div class="fila-resumen total">
+                    <span>Total</span>
+                    <strong id="modalTotal">S/ 0.00</strong>
+                </div>
+            </div>
+
+            <div class="acciones-modal">
+                <button type="button" class="btn-agregar">Agregar al carrito</button>
+                <button type="button" class="btn-cerrar">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel lateral del carrito: JavaScript agrega productos y calcula los importes. -->
+    <aside class="carrito-panel" id="carritoPanel" aria-hidden="true">
+        <div class="carrito-panel-header">
+            <h3>Mi carrito</h3>
+            <button type="button" class="cerrar-carrito" aria-label="Cerrar carrito">×</button>
+        </div>
+
+        <!-- Vista previa del producto más reciente; comienza oculta hasta agregar uno. -->
+        <div class="carrito-producto-preview hidden" id="carritoProductoPreview">
+            <img src="" alt="Producto del carrito" class="carrito-preview-imagen">
+            <div class="carrito-preview-texto">
+                <p class="carrito-preview-titulo">Producto</p>
+                <p class="carrito-preview-precio">S/ 0.00</p>
+            </div>
+        </div>
+
+        <!-- JavaScript dibuja aquí la lista de productos que hay en el carrito. -->
+        <div class="carrito-items" id="carritoItems"></div>
+
+        <!-- Resumen de precios: subtotal, IGV y total calculados por JavaScript. -->
+        <div class="carrito-resumen-final">
+            <div class="fila-final">
+                <span>Subtotal (sin IGV)</span>
+                <strong id="subtotalCarrito">S/ 0.00</strong>
+            </div>
+            <div class="fila-final">
+                <span>IGV incluido</span>
+                <strong id="igvCarrito">S/ 0.00</strong>
+            </div>
+            <div class="fila-final">
+                <span>Descuento (más de 10 unidades)</span>
+                <strong id="descuentoCarrito">S/ 0.00</strong>
+            </div>
+            <div class="fila-final total-final">
+                <span>Total neto</span>
+                <strong id="totalNetoCarrito">S/ 0.00</strong>
+            </div>
+        </div>
+
+        <button type="button" class="boton-finalizar">Finalizar compra</button>
+    </aside>
+    <!-- Modal final: primero pide los datos del cliente y luego muestra la confirmación. -->
+    <div class="modal-overlay" id="modalGracias" aria-hidden="true">
+        <section class="confirmacion-compra" role="dialog" aria-modal="true" aria-label="Datos y confirmación del pedido">
+            <form id="formularioCliente">
+                <p class="confirmacion-icono" aria-hidden="true">🧁</p>
+                <p class="modal-etiqueta">Datos para tu pedido</p>
+                <h2>¿A quién avisamos?</h2>
+                <p class="confirmacion-mensaje">Déjanos tus datos. Al continuar, enviaremos el pedido a la pastelería por WhatsApp.</p>
+
+                <!-- required y pattern ayudan a validar los datos antes de preparar el pedido. -->
+                <label for="nombreCliente">Nombre del cliente</label>
+                <input type="text" id="nombreCliente" name="nombreCliente" autocomplete="name" required>
+
+                <label for="telefonoCliente">Número de contacto</label>
+                <input type="tel" id="telefonoCliente" name="telefonoCliente" autocomplete="tel" inputmode="tel" pattern="[0-9+() -]{9,18}" title="Ingresa un número válido, por ejemplo +51 912 345 678" required>
+
+                <div class="acciones-checkout">
+                    <button type="submit" class="btn-agregar">Continuar a WhatsApp</button>
+                    <button type="button" class="btn-cerrar" id="btnCancelarCheckout">Volver al carrito</button>
+                </div>
+            </form>
+
+            <!-- Este bloque se muestra después de validar el formulario; el enlace abre WhatsApp. -->
+            <div class="confirmacion-exito" id="confirmacionExito" aria-live="polite">
+                <p class="confirmacion-icono" aria-hidden="true">🎉</p>
+                <p class="modal-etiqueta">Pedido preparado</p>
+                <h2>¡Gracias, <span id="nombreClienteConfirmacion"></span>!</h2>
+                <p class="confirmacion-mensaje">Envía el mensaje por WhatsApp para que podamos recibir tu pedido y avisarte cuando esté listo.</p>
+                <div class="fila-resumen total">
+                    <span>Total</span>
+                    <strong id="totalCompraConfirmada">S/ 0.00</strong>
+                </div>
+                <a class="btn-agregar enlace-whatsapp-pedido" id="enlaceWhatsappPedido" href="#" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+                <button type="button" class="btn-cerrar boton-cerrar-confirmacion" id="btnCerrarGracias">Cerrar</button>
+            </div>
+        </section>
+    </div>
+    <!-- Carga la lógica interactiva del carrito, formularios y modales. -->
+    <script src="js/hola.js"></script>
+    <script src="js/formulario.js"></script>
+
+</body>
+</html>

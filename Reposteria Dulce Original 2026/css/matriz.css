@@ -1,0 +1,1022 @@
+/* ==========================================
+   CONFIGURACIONES GLOBALES Y EFECTOS
+   ========================================== */
+/* Hace que los enlaces internos se desplacen suavemente. */
+html {
+    scroll-behavior: smooth; /* Desplazamiento ultra suave por la página */
+}
+
+/* Impide que la página se ensanche y aparezca desplazamiento horizontal. */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Mantiene imágenes y videos dentro del ancho de su contenedor. */
+img, iframe, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Quita márgenes por defecto y calcula tamaños incluyendo padding y borde. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales de texto, fondo y tamaño para toda la página. */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff7f2;
+    color: #070707;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   BARRA DE NAVEGACIÓN SUPERIOR FIJA 
+   ========================================== */
+/* El encabezado queda arriba al desplazarse; flex distribuye logo y menú. */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #fffefe;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Tamaño del logo. */
+.Reposteria {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+/* Organiza horizontalmente las opciones del menú y separa cada una con gap. */
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Estilo de los enlaces del menú: quita el subrayado y aumenta el área clicable. */
+nav ul li a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: block;
+}
+
+/* Cambia el fondo del enlace cuando el puntero pasa encima. */
+nav ul li a.enlace-texto:hover {
+    background-color: rgb(255, 40, 219);
+    border-radius: 4px;
+}
+
+/* Destaca el enlace para cerrar sesión y oscurece el rojo al pasar el cursor. */
+.boton-cerrar-sesion {
+    border-radius: 6px;
+    background-color: #d32f2f;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.boton-cerrar-sesion:hover {
+    background-color: #b71c1c !important;
+}
+
+/* Estilo del separador vertical entre el menú y el carrito. */
+.divisor {
+    color: #121212;
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+.carrito-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Botón del carrito; incluye el color, el espacio entre elementos y el cursor. */
+.carrito-boton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #f710aa, #d81b60);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 9px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(247, 16, 170, 0.25);
+}
+
+.carrito-emoji {
+    font-size: 16px;
+}
+
+/* Círculo pequeño que muestra cuántas unidades hay en el carrito. */
+.carrito-total {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #d81b60;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* El panel se oculta fuera del borde derecho y aparece con la clase active. */
+.carrito-panel {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: min(420px, 90vw);
+    height: 100vh;
+    background: linear-gradient(180deg, #fff4f8 0%, #fffaf7 100%);
+    box-shadow: -8px 0 30px rgba(59, 27, 38, 0.18);
+    transition: right 0.3s ease;
+    z-index: 1500;
+    padding: 20px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Cuando JavaScript agrega active, el panel se mueve dentro de la pantalla. */
+.carrito-panel.active {
+    right: 0;
+}
+
+/* Alinea el título y el botón de cerrar en la cabecera del carrito. */
+.carrito-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f4d9e6;
+    padding-bottom: 12px;
+}
+
+.carrito-panel-header h3 {
+    font-size: 28px;
+    color: #6a2b3d;
+}
+
+/* Estilo circular para el botón de cerrar. */
+.cerrar-carrito {
+    border: none;
+    background: #f9e6ee;
+    color: #7a2a49;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Vista previa del último producto agregado al carrito. */
+.carrito-producto-preview {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    border: 1px solid #f0d0e4;
+    border-radius: 14px;
+    padding: 12px;
+}
+
+/* La clase hidden permite ocultar la vista previa cuando no hay productos. */
+.carrito-producto-preview.hidden {
+    display: none;
+}
+
+.carrito-preview-imagen {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.carrito-preview-titulo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3b2828;
+    margin-bottom: 4px;
+}
+
+.carrito-preview-precio {
+    color: #a34665;
+    font-weight: bold;
+}
+
+/* La lista del carrito ocupa el espacio libre y permite desplazarse si es larga. */
+.carrito-items {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid #f0d0e4;
+    border-radius: 14px;
+    padding: 10px;
+}
+
+/* Cada producto se organiza en una fila con imagen, datos, precio y botón X. */
+.item-carrito {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 6px;
+    border-bottom: 1px solid #f4d9e7;
+    position: relative;
+}
+
+.item-carrito:last-child {
+    border-bottom: none;
+}
+
+.item-carrito img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.item-carrito-info {
+    flex: 1;
+}
+
+/* Diseño del botón que quita un producto. */
+.quitar-item {
+    border: none;
+    background: #f9e6ee;
+    color: #7a2a49;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    margin-left: 6px;
+}
+
+.nombre-item {
+    font-weight: bold;
+    color: #3d2b2d;
+    margin-bottom: 4px;
+}
+
+.precio-item {
+    font-size: 13px;
+    color: #6d4d48;
+}
+
+.monto-item {
+    color: #7a2a49;
+    font-size: 14px;
+}
+
+.carrito-vacio {
+    color: #7a5b64;
+    font-size: 15px;
+    padding: 12px;
+}
+
+/* Estilos para el resumen de subtotal, IGV y total. */
+.carrito-resumen-final {
+    background: #fff;
+    border: 1px solid #f0d0e4;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* Alinea el nombre de cada importe a la izquierda y su valor a la derecha. */
+.fila-final {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom: 1px solid #f4d9e7;
+    color: #4e2a37;
+}
+
+.fila-final:last-child {
+    border-bottom: none;
+}
+
+/* Destaca visualmente la fila del total. */
+.total-final {
+    background: #fce9ef;
+    font-weight: bold;
+    color: #6a2b3d;
+}
+
+/* Botón que abre el formulario para completar la compra. */
+.boton-finalizar {
+    background: linear-gradient(135deg, #b24d66, #d96d88);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Alineación y tamaño de los iconos de redes sociales. */
+.red-social {
+    display: flex;
+    align-items: center;
+}
+
+.red-social a {
+    padding: 0 !important;
+    margin: 0;
+    display: block;
+}
+
+.Facebook, .Youtube, .Tiktok, .IG {
+    width: 22px;
+    height: 22px;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+/* ==========================================
+   ESTILOS DE LAS SECCIONES GENERALES
+   ========================================== */
+/* Espacio interior superior y lateral que comparten todas las secciones. */
+section {
+    padding: 100px 20px 60px 20px; 
+}
+
+/* --- SECCIÓN 1: INICIO --- */
+/* Fondo y alineación del contenido de bienvenida. */
+.seccion-inicio {
+    background-color: #9b166e; /* Tu fucsia matriz original */
+    text-align: center;
+}
+
+/* Tamaño, color y ancho máximo del texto de presentación. */
+.seccion-inicio .presentación {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fffefe;
+    max-width: 750px;
+    margin: 0 auto 30px auto;
+    line-height: 1.5;
+}
+
+.seccion-inicio .Postres {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Centra el video y limita su ancho en pantallas grandes. */
+.video-contenedor {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 560px; /* Tamaño computadora */
+}
+
+/* El video ocupa el ancho disponible dentro de su contenedor. */
+.video-contenedor iframe {
+    width: 100%;
+    height: 315px;
+    border: none;
+    display: block;
+}
+
+.Whassap {
+    width: 400px;
+    height: auto;
+    margin: 1px auto;
+    display: block;
+}
+
+/* En celulares pequeños reducimos la altura del video. */
+@media screen and (max-width: 480px) {
+    .video-contenedor iframe {
+        height: 210px; /* Evita que el video se vea demasiado alto en pantallas chicas */
+    }
+}
+
+
+/* --- SECCIÓN 2: CATÁLOGO --- */
+/* Color de fondo y separación superior del catálogo. */
+.seccion-catalogo {
+    background-color: #f710aa; /* Sincronizado para mantener la fluidez del fondo */
+    border-top: 2px solid rgba(255,255,255,0.1);
+}
+
+/* Títulos y texto descriptivo del catálogo. */
+.titulo-catalogo {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: #fffefe;
+    margin-bottom: 10px;
+}
+
+.subtitulo-catalogo {
+    text-align: center;
+    color: #fffefe;
+    max-width: 650px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+/* flex-wrap permite que las tarjetas pasen a otra fila si no caben. */
+.catalogo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+/* Apariencia y disposición interna de cada tarjeta de producto. */
+.producto-card {
+    background-color: #fffefe;
+    width: 260px;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Recorta las imágenes para que todas tengan el mismo tamaño. */
+.producto-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Agranda levemente la imagen al pasar el puntero encima. */
+.producto-card img:hover {
+    transform: scale(1.06); /* Animación de zoom suave */
+}
+
+/* Estilo del nombre, descripción y precio de cada producto. */
+.producto-nombre {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 10px 5px;
+    color: #4a2c2a;
+}
+
+.producto-descripcion {
+    font-size: 14px;
+    color: #555555;
+    margin: 0 12px 15px;
+    line-height: 1.4;
+    flex-grow: 1; /* Alínea las cajas de texto de forma ordenada */
+}
+
+.producto-precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f710aa;
+    margin-bottom: 15px;
+}
+
+/* Botón que abre el comprobante de un producto. */
+.producto-boton {
+    display: inline-block;
+    background-color: #f710aa;
+    color: #fffefe;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.producto-boton:hover {
+    background-color: rgb(196, 209, 124);
+    color: #070707;
+}
+
+/* Fondo oscuro que cubre la página detrás de los modales. */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(39, 13, 24, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 2000;
+}
+
+/* La clase active muestra el modal; sin ella permanece oculto. */
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Caja del formulario de compra y confirmación, con desplazamiento si hace falta. */
+.confirmacion-compra {
+    width: min(420px, 100%);
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 30px 24px 24px;
+    border: 2px solid #f5bfd8;
+    border-radius: 18px;
+    background: #fff8fb;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: aparecer-confirmacion 0.3s ease-out;
+}
+
+.confirmacion-icono {
+    margin-bottom: 12px;
+    font-size: 48px;
+}
+
+.confirmacion-compra h2 {
+    margin-bottom: 10px;
+    color: #7a1f4d;
+    font-size: 28px;
+}
+
+.confirmacion-compra label {
+    display: block;
+    margin: 14px 0 6px;
+    color: #4e2a37;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.confirmacion-compra input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #d9b5c5;
+    border-radius: 8px;
+    background: #fff;
+    color: #3d2b2d;
+    font: inherit;
+}
+
+.confirmacion-compra input:focus {
+    outline: 2px solid #d96d88;
+    outline-offset: 2px;
+}
+
+.confirmacion-mensaje {
+    margin-bottom: 20px;
+    color: #5a3d4f;
+    line-height: 1.5;
+}
+
+.acciones-checkout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* El mensaje de éxito solo aparece cuando JavaScript agrega visible. */
+.confirmacion-exito {
+    display: none;
+}
+
+.confirmacion-exito.visible {
+    display: block;
+}
+
+.confirmacion-compra .fila-resumen {
+    margin-bottom: 18px;
+    border: 1px solid #f0d0e4;
+    border-radius: 10px;
+}
+
+.confirmacion-compra .btn-agregar,
+.confirmacion-compra .btn-cerrar {
+    width: 100%;
+}
+
+.enlace-whatsapp-pedido {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.boton-cerrar-confirmacion {
+    font-size: 14px;
+}
+
+/* Animación de entrada de la ventana de confirmación. */
+@keyframes aparecer-confirmacion {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Caja del comprobante que muestra el detalle y precio del producto. */
+.modal-comprobante {
+    position: relative;
+    width: min(460px, 100%);
+    background: #fff8fb;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+    padding: 28px 24px 20px;
+    border: 2px solid #f5bfd8;
+}
+
+.modal-etiqueta {
+    font-size: 12px;
+    color: #b91c79;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal-comprobante h3 {
+    color: #7a1f4d;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.detalle-compra {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #f0d0e4;
+    margin-bottom: 18px;
+}
+
+.nombre-producto {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2d1c23;
+    margin-bottom: 6px;
+}
+
+.descripcion-producto {
+    color: #5a3d4f;
+    font-size: 14px;
+}
+
+.resumen-compra {
+    background: #fff;
+    border: 1px solid #f0d0e4;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Filas de cantidad y precio dentro del comprobante. */
+.fila-resumen {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 16px;
+    border-bottom: 1px solid #f4d9e7;
+    color: #3a2731;
+    font-size: 15px;
+}
+
+.fila-resumen:last-child {
+    border-bottom: none;
+}
+
+.fila-resumen.total {
+    background: #fce7f3;
+    font-size: 17px;
+    font-weight: bold;
+    color: #7a1f4d;
+}
+
+.acciones-modal {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+/* Estilos compartidos por los botones de los modales. */
+.btn-agregar,
+.btn-cerrar,
+.cerrar-modal {
+    border: none;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+}
+
+.btn-agregar {
+    flex: 1;
+    background: linear-gradient(135deg, #d81b60, #f710aa);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.btn-cerrar {
+    background: #f0e6eb;
+    color: #6b3247;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #fce7f3;
+    color: #7a1f4d;
+    font-size: 24px;
+    line-height: 1;
+}
+
+/* --- SECCIÓN 3: NOSOTROS --- */
+/* Fondo y diseño en cuadrícula de los bloques informativos. */
+.seccion-nosotros {
+    background-color: #fff7f2;
+}
+
+.seccion-nosotros h1 {
+    text-align: center;
+    font-size: 42px;
+    color: #8b3a3a;
+    margin-bottom: 40px;
+}
+
+.contenido-nosotros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Cada bloque presenta una parte de la información del negocio. */
+.bloque {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #e8b7a8;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bloque h2 {
+    color: #a94f4f;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.bloque p, .bloque li {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #4a2c2a;
+}
+
+.bloque ul {
+    padding-left: 25px;
+}
+
+.bloque li {
+    margin-bottom: 8px;
+}
+
+.bloque:hover {
+    transform: translateY(-5px); /* Efecto de elevación interactiva */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- SECCIÓN 4: CONTACTO --- */
+/* Fondo, textos y distribución del formulario de contacto. */
+.seccion-contacto {
+    background-color: #f10080;
+    color: white;
+    text-align: center;
+}
+
+.seccion-contacto h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.seccion-contacto .subtitulo {
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+/* Coloca la información y el formulario lado a lado cuando hay espacio. */
+.contacto-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Apariencia común de la tarjeta de datos y del formulario. */
+.contacto-info, .contacto-formulario {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    color: #333;
+}
+
+.contacto-info h3, .contacto-formulario h3 {
+    color: #f10080;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f10080;
+    padding-bottom: 8px;
+    font-size: 22px;
+}
+
+.contacto-info p {
+    margin: 18px 0;
+    font-size: 16px;
+}
+
+.contacto-formulario label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Los campos y botones ocupan el ancho de la tarjeta. */
+.contacto-formulario input, .contacto-formulario textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.contacto-formulario button {
+    background-color: #f10080;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.contacto-formulario button:hover {
+    background-color: #bd0062;
+}
+
+.enlace-retorno {
+    margin-top: 40px;
+}
+
+.btn-volver {
+    display: inline-block;
+    text-decoration: none;
+    background-color: white;
+    color: #f10080;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.btn-volver:hover {
+    transform: translateY(-2px);
+}
+
+/* En pantallas de hasta 768 px reorganizamos el contenido para celular. */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Ajuste General de Secciones */
+    section {
+        padding: 60px 15px 40px 15px; /* Reduce los espacios exagerados */
+        width: 100%; /* Asegura que ninguna sección mida más que la pantalla */
+        box-sizing: border-box; /* Evita que el padding sume ancho extra */
+    }
+
+    /* 2. Reparación del Menú Superior */
+    header {
+        flex-direction: column; /* Coloca el logo arriba y el menú abajo */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .Reposteria {
+        width: 160px; /* Reducimos levemente el tamaño del logo */
+    }
+
+    nav ul {
+        flex-wrap: wrap; /* Si el menú no entra en una línea, baja de forma ordenada */
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 15px;
+        padding: 8px 10px; /* Botones del menú más cómodos para el dedo */
+    }
+
+    .divisor {
+        display: none; /* Ocultamos la barra "|" para ganar espacio crucial */
+    }
+
+    /* 3. Ajuste de Textos en Inicio */
+    .seccion-inicio .presentación {
+        font-size: 18px; /* Texto equilibrado para celulares */
+        line-height: 1.4;
+    }
+
+    /* 4. Títulos de catálogo y contacto legibles */
+    .titulo-catalogo, .seccion-contacto h2 {
+        font-size: 28px;
+    }
+
+    /* 5. Reparación de la Sección Nosotros */
+    .contenido-nosotros {
+        grid-template-columns: 1fr; /* ¡Cambia a 1 sola columna! Las tarjetas se apilan verticalmente */
+        gap: 15px;
+    }
+    
+    .seccion-nosotros h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .contenedor-catalogo {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 10px;
+        display: flex;
+        flex-direction: column; /* Apila las tarjetas de cheesecake una debajo de otra */
+        align-items: center;
+    }
+
+    /* Asegura que las tarjetas individuales no pesen más que la pantalla */
+    .tarjeta-producto, .card { 
+        width: 100% !important;
+        max-width: 340px; /* Tamaño ideal para que se vea bien en cualquier celular */
+        box-sizing: border-box;
+    }
+}

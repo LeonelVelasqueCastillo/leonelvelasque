@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - Dulce Sabor</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/login.js" defer></script>
+</head>
+
+<body class="pagina-login">
+
+    <!-- Formulario de inicio de sesión. -->
+    <div class="login">
+
+        <h1>DULCE SABOR</h1>
+
+        <form id="formLogin">
+
+            <label for="usuario">Ingrese usuario:</label>
+            <input type="text" id="usuario" autocomplete="username" required>
+
+            <label for="password">Ingrese contraseña:</label>
+            <input type="password" id="password" autocomplete="current-password" required>
+
+            <button type="submit">Ingresar</button>
+
+            <!-- Mensaje que aparece si los datos son incorrectos. -->
+            <p id="mensaje" role="alert" hidden>Usuario o contraseña incorrectos.</p>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
